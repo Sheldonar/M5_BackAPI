@@ -1,4 +1,4 @@
-package com.fedorg.api;
+package com.fedorg.api.Entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,6 +26,9 @@ public class Message {
         this.sender = sender;
         this.reciever = reciever;
         this.sendedAt = sendedAt;
+    }
+
+    public Message(String fuck_you_bitch, String ira, String ivan, Date sendedAt) { // created automatically for tests
     }
 
     public Long getId() {

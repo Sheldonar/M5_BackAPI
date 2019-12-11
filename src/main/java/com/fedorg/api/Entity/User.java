@@ -1,4 +1,4 @@
-package com.fedorg.api;
+package com.fedorg.api.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +33,7 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public User(String ivan, String qwerty, Date date) {
+    public User(String ivan, String qwerty, Date date) { // created automatically for tests
     }
 
     public Long getId() {

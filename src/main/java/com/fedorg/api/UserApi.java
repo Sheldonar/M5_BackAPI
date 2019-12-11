@@ -1,5 +1,7 @@
 package com.fedorg.api;
 
+import com.fedorg.api.Entity.User;
+import com.fedorg.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
