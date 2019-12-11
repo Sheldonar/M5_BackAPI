@@ -31,8 +31,8 @@ public class ApiApplication implements CommandLineRunner {
         userRepository.save(user1);
         userRepository.save(user2);
 
-        Message message1 = new Message("FUCK YOU BITCH", "ira", "ivan", new Date());
-        Message message2 = new Message("your mom gay", "ivan", "ira", new Date());
+        Message message1 = new Message("FUCK YOU BITCH", new Date());
+        Message message2 = new Message("your mom gay", new Date());
         messageRepository.save(message1);
         messageRepository.save(message2);
 

@@ -12,13 +12,10 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @NotBlank
     private String login;
 
-    @NotBlank
     private String name;
 
-    @NotBlank
     private String password;
 
     private Date createdAt;
@@ -26,14 +23,14 @@ public class User {
     public User() {
     }
 
-    public User(@NotBlank String login, @NotBlank String name, @NotBlank String password, Date createdAt) {
+    public User(String login, String name, String password, Date createdAt) {
         this.login = login;
         this.name = name;
         this.password = password;
         this.createdAt = createdAt;
     }
 
-    public User(String ivan, String qwerty, Date date) { // created automatically for tests
+    public User(String ivan, String qwerty, Date date) {
     }
 
     public Long getId() {
@@ -75,4 +72,5 @@ public class User {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+    
 }

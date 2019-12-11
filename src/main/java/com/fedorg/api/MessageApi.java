@@ -20,13 +20,13 @@ public class MessageApi {
         return messageRepository.findById(id).get();
     }
 
-    @PostMapping
+    @PostMapping //TODO add null filters
     @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody @Valid Message message){
         return messageRepository.save(message);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("{id}") //TODO fix put requests
     public Message update(@PathVariable Long id, @RequestBody Message message){
         if (message.getId() == null){
             message.setId(id);

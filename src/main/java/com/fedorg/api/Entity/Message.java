@@ -1,30 +1,27 @@
 package com.fedorg.api.Entity;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import java.util.Date;
 
+@Entity
 public class Message {
-
     @Id
     @GeneratedValue
     private Long id;
 
     private String body;
 
-    private OneToOne sender;
-    private OneToOne reciever;
+    //TODO one to one
 
     private Date sendedAt;
 
     public Message() {
     }
 
-    public Message(String body, OneToOne sender, OneToOne reciever, Date sendedAt) {
+    public Message(String body, Date sendedAt) {
         this.body = body;
-        this.sender = sender;
-        this.reciever = reciever;
         this.sendedAt = sendedAt;
     }
 
@@ -45,22 +42,6 @@ public class Message {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public OneToOne getSender() {
-        return sender;
-    }
-
-    public void setSender(OneToOne sender) {
-        this.sender = sender;
-    }
-
-    public OneToOne getReciever() {
-        return reciever;
-    }
-
-    public void setReciever(OneToOne reciever) {
-        this.reciever = reciever;
     }
 
     public Date getSendedAt() {
