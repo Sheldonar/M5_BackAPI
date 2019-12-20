@@ -1,8 +1,8 @@
 package com.fedorg.api.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -13,7 +13,13 @@ public class Message {
 
     private String body;
 
-    //TODO one to one
+    @JsonIgnore
+    @ManyToOne
+    private Users sender;
+
+    @JsonIgnore
+    @ManyToOne
+    private Users recipient;
 
     private Date sendedAt;
 
@@ -25,7 +31,27 @@ public class Message {
         this.sendedAt = sendedAt;
     }
 
-    public Message(String fuck_you_bitch, String ira, String ivan, Date sendedAt) { // created automatically for tests
+    public Message(String body, Users sender, Users recipient, Date sendedAt) {
+        this.body = body;
+        this.sender = sender;
+        this.recipient = recipient;
+        this.sendedAt = sendedAt;
+    }
+
+    public Users getSender() {
+        return sender;
+    }
+
+    public void setSender(Users sender) {
+        this.sender = sender;
+    }
+
+    public Users getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(Users recipient) {
+        this.recipient = recipient;
     }
 
     public Long getId() {

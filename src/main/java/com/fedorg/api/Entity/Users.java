@@ -1,13 +1,13 @@
 package com.fedorg.api.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue
     private Long id;
@@ -20,17 +20,37 @@ public class User {
 
     private Date createdAt;
 
-    public User() {
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
+    private List<Message> sendedMessages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
+    private List<Message> recievedMessages = new ArrayList<>();
+
+
+    public Users() {
     }
 
-    public User(String login, String name, String password, Date createdAt) {
+    public Users(String login, String name, String password, Date createdAt) {
         this.login = login;
         this.name = name;
         this.password = password;
         this.createdAt = createdAt;
     }
 
-    public User(String ivan, String qwerty, Date date) {
+    public List<Message> getSendedMessages() {
+        return sendedMessages;
+    }
+
+    public void setSendedMessages(List<Message> sendedMessages) {
+        this.sendedMessages = sendedMessages;
+    }
+
+    public List<Message> getRecievedMessages() {
+        return recievedMessages;
+    }
+
+    public void setRecievedMessages(List<Message> recievedMessages) {
+        this.recievedMessages = recievedMessages;
     }
 
     public Long getId() {
@@ -72,5 +92,5 @@ public class User {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
-    
+
 }

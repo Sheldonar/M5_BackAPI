@@ -1,7 +1,7 @@
 package com.fedorg.api;
 
 import com.fedorg.api.Entity.Message;
-import com.fedorg.api.Entity.User;
+import com.fedorg.api.Entity.Users;
 import com.fedorg.api.repositories.MessageRepository;
 import com.fedorg.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +26,13 @@ public class ApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user1 = new User("ira", "1234", new Date());
-        User user2 = new User("ivan", "qwerty", new Date());
+        Users user1 = new Users("ira", "1234", "aj", new Date());
+        Users user2 = new Users("ivan", "qwerty", "kwe", new Date());
         userRepository.save(user1);
         userRepository.save(user2);
 
-        Message message1 = new Message("FUCK YOU BITCH", new Date());
-        Message message2 = new Message("your mom gay", new Date());
+        Message message1 = new Message("hello", new Date());
+        Message message2 = new Message("no", new Date()); //TODO local date and time
         messageRepository.save(message1);
         messageRepository.save(message2);
 
